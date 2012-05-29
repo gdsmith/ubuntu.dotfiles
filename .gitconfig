@@ -1,0 +1,8 @@
+[user]
+	email = george@mukuru.com
+[core]
+	excludesfile = /home/george/.gitignore_global
+[color]
+	ui = true
+[alias]
+	igrep = grep -i
