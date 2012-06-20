@@ -30,6 +30,13 @@ function my_restore() {
     ) | mysql -u"$MYSQL_USER" "$1" -f
 }
 
+function mkmk() {
+	[ $1 ] || echo 'usage: mkmk filename' && return;
+    dir="`dirname $1`";
+    [ $dir ] && mkdir -p $dir;
+    touch $1;
+}
+			
 # dedupe history, keep more and always append history 
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
