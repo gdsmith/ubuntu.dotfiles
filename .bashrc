@@ -61,10 +61,13 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# powerliner ⮂ ⮃ ⮀ ⮁
+
 if [ "$color_prompt" = yes ]; then
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    # PS1="${debian_chroot:+($debian_chroot)}\[\033[00m\]\n\[\033[0;30;47m\] ▶ \[\033[0;32;40m\] \u@\H\[\033[0;37;40m\]:\[\033[0;34;40m\]\w \[\033[0;30;47m\] $ \[\033[00m\] "
-    PS1="${debian_chroot:+($debian_chroot)}\[\033[00m\]\n\[\033[0;30;47m\] ▶ \[\033[0;40;37m\]⮀\[\033[0;32;40m\] \u@\H\[\033[0;37;40m\]:\[\033[0;34;40m\]\w \[\033[0;47;30m\]⮀\[\033[0;30;47m\] $ \[\033[0;00;00m\]⮀\[\033[00m\] "
+    #PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[00m\]\$ '
+    # PS1="${debian_chroot:+($debian_chroot)}\[\e[00m\]\n\[\e[0;30;47m\] ▶ \[\e[0;32;40m\] \u@\H\[\e[0;37;40m\]:\[\e[0;34;40m\]\w \[\e[0;30;47m\] $ \[\e[00m\] "
+    PS1="${debian_chroot:+($debian_chroot)}\[\e[00m\]\n\[\e[0;43;30m\] \u@\H \[\e[1;33;40m\]⮀ \[\e[0;34;40m\]\w \[\e[01;00m\]\[\e[00;30m\]⮀\[\e[00m\] "
+    # \[\033[s\]\[\033[80;\$((COLUMNS-4))f\]\$(date +%H:%M)\[\033[u\] < puts the time at rhs 
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -115,3 +118,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 alias shd='sudo shutdown -P now'
+
+export ENVIRONMENT=development
+export HTTP_HOST=test.mukuru.com
